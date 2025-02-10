@@ -109,13 +109,14 @@ public class Searcher {
 
             // **Bounding Box Filtering**
             double[] boundingBox = null;
+            double minLat = 0, maxLat = 0, minLon = 0, maxLon = 0;
             if (spatialSearch) {
                 // System.out.println("Creating Bounding Box...");
                 boundingBox = getBoundingBox(latitude, longitude, width);
-                double minLat = boundingBox[0];
-                double maxLat = boundingBox[1];
-                double minLon = boundingBox[2];
-                double maxLon = boundingBox[3];
+                minLat = boundingBox[0];
+                maxLat = boundingBox[1];
+                minLon = boundingBox[2];
+                maxLon = boundingBox[3];
                 System.out.println(String.format("Boundary: MinLat = %.4f, MaxLat = %.4f, MinLon = %.4f, MaxLon = %.4f.", minLat, maxLat, minLon, maxLon));
                 
             }

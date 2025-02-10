@@ -1,0 +1,37 @@
+# Maven build directory
+/target/
+/.idea/
+/.vscode/
+
+# Eclipse project files (if using Eclipse)
+/.project
+/.classpath
+/.settings/
+
+# IntelliJ IDEA project files (if using IntelliJ)
+/*.iml
+/.idea/
+
+# Skip Lucene index folder (if you have a folder where indexes are stored)
+# Assuming your Lucene index is stored in "lucene-index" or similar directory
+/lucene-10.1.0/
+
+# Skip local environment files (such as temporary build files)
+*.tar
+/lib/
+*/indexes/
+/._*
+*/._*
+*.class
+/*.log
+*.tmp
+*.swp
+.DS_Store
+*.bak
+pa2/target/pa2-1.0-SNAPSHOT.jar
+pa2/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst
+pa2/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst
+pa2/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+pa2/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
+pa2/target/maven-archiver/pom.properties
+pa2/target/classes/com/ptsai/Main.class
