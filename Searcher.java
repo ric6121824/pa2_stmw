@@ -107,6 +107,19 @@ public class Searcher {
             // Iterate over results and print them
             List<SearchResult> results = new ArrayList<>();
 
+            // **Bounding Box Filtering**
+            double[] boundingBox = null;
+            if (spatialSearch) {
+                // System.out.println("Creating Bounding Box...");
+                boundingBox = getBoundingBox(latitude, longitude, width);
+                double minLat = boundingBox[0];
+                double maxLat = boundingBox[1];
+                double minLon = boundingBox[2];
+                double maxLon = boundingBox[3];
+                System.out.println(String.format("Boundary: MinLat = %.4f, MaxLat = %.4f, MinLon = %.4f, MaxLon = %.4f.", minLat, maxLat, minLon, maxLon));
+                
+            }
+
             for (ScoreDoc hit : topDocs.scoreDocs) {
                 Document doc = indexSearcher.storedFields().document(hit.doc);
                 String itemId = doc.get("ItemId");
@@ -118,30 +131,20 @@ public class Searcher {
                 double itemLon = (lonStr != null) ? Double.parseDouble(lonStr) : 0.0;
 
                 double distance = 0.0;
-                
-                // **Bounding Box Filtering**
-                
-                if (spatialSearch) {
-                    // System.out.println("Creating Bounding Box...");
-                    double[] boundingBox = getBoundingBox(latitude, longitude, width);
-                    double minLat = boundingBox[0];
-                    double maxLat = boundingBox[1];
-                    double minLon = boundingBox[2];
-                    double maxLon = boundingBox[3];
-                    // System.out.println(String.format("Boundary: MinLat = %.4f, MaxLat = %.4f, MinLon = %.4f, MaxLon = %.4f.", minLat, maxLat, minLon, maxLon));
-                    
+                if(spatialSearch){
                     // System.out.println("Filtering through bounding box...");
-                    if (itemLat < minLat || itemLat > maxLat || itemLon < minLon || itemLon > maxLon) {
-                        continue; // Skip items outside bounding box
+                    if (itemLat < minLat || itemLat > maxLat ||
+                         itemLon < minLon || itemLon > maxLon) {
+                    continue; // Skip items outside bounding box
                     }
-
+                    
                     // **Final Precise Distance Calculation**
                     distance = haversine(latitude, longitude, itemLat, itemLon);
-
                     if (distance > width) {
                         continue;  // Exclude items beyond width
                     }
                 }
+                
 
                 results.add(new SearchResult(itemId, itemName, hit.score, distance, price));
                 // System.out.println("Filtered out ItemId: " + itemId + " (distance = " + distance + " km, width = " + width + ")");
