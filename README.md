@@ -1,7 +1,7 @@
 ## **Programming Assignment 2 Documentation**
 
 ### **Overview**
-This project implements a **Lucene-based search engine** that supports **spatial filtering**. The system allows users to search for items based on textual queries and restrict results based on **geographical coordination** using a **bounding box and precise distance filtering**. The backend uses **MySQL** for storing item data, which is indexed using Apache Lucene.
+This assigned project requires and implements a **Lucene-based search engine** that supports **spatial filtering**. The system allows users to search for items based on textual queries and restrict results based on **geographical coordination** using a **bounding box and precise distance filtering**. The backend uses **MySQL** for storing item data, which is indexed using Apache Lucene.
 
 ---
 
