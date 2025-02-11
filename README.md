@@ -3,6 +3,11 @@
 ### **Overview**
 This assigned project requires and implements a **Lucene-based search engine** that supports **spatial filtering**. The system allows users to search for items based on textual queries and restrict results based on **geographical coordination** using a **bounding box and precise distance filtering**. The backend uses **MySQL** for storing item data, which is indexed using Apache Lucene.
 
+## **Team**
+- **Ping-Chung Tsai** (ptsai@uni-bremen.de) 6361331
+- **Md Azijul Islam** (mdazijul@uni-bremen.de) 6337733
+
+**GitHub Repository**: https://github.com/ric6121824/pa2_stmw
 ---
 
 ## **Project Structure**
@@ -34,8 +39,5 @@ if (minLon < -180.0) minLon += 360.0;
 if (maxLon > 180.0) maxLon -= 360.0;
 ```
 
-## **Contributors**
-- **Ping-Chung Tsai** (ptsai@uni-bremen.de) 6361331
-- **Md Azijul Islam** (mdazijul@uni-bremen.de) 6337733
 
 
