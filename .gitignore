@@ -19,7 +19,7 @@
 # Skip local environment files (such as temporary build files)
 *.tar
 /lib/
-*/indexes/
+/indexes/
 /._*
 */._*
 *.class
