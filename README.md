@@ -18,7 +18,7 @@ This project implements a **Lucene-based search engine** that supports **spatial
 ```
 
 ## **Key Challenges & Solutions**
-### **1️. Docker & MySQL Connection Issues**
+### **1. Docker & MySQL Connection Issues**
  **Problem:** The **NoSuchFileException** or **AlreadyClosedException** occurs while creating the temporary index directory, whether using the `FSDirectory` with `NoLockFactory`, `MMapDirectory`, or `NIOFSDirectory` with `NoLockFactory`.
  **Solution:** Run the docker under Windows 10 instead of MacOS.
 
